@@ -9,5 +9,14 @@
         tools:targetApi="28"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <meta-data
+            android:name="com.quickblox.messages.TYPE"
+            android:value="FCM" />
+        <meta-data
+            android:name="com.quickblox.messages.SENDER_ID"
+            android:value="377548733784" />
+        <meta-data
+            android:name="com.quickblox.messages.QB_ENVIRONMENT"
+            android:value="DEVELOPMENT" />
     </application>
 </manifest>

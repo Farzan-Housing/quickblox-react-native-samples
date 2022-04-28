@@ -198,6 +198,9 @@ dependencies {
     implementation 'com.facebook.fresco:animated-gif:2.0.0'
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation(project(':react-native-fcm'))
+    implementation 'com.google.firebase:firebase-core'
+    implementation 'com.google.firebase:firebase-messaging'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'

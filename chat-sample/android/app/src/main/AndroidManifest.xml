@@ -38,8 +38,17 @@
         <meta-data
             android:name="com.dieam.reactnativepushnotification.notification_color"
             android:resource="@color/primary" />
+        <meta-data
+            android:name="com.quickblox.messages.TYPE"
+            android:value="FCM" />
+        <meta-data
+            android:name="com.quickblox.messages.SENDER_ID"
+            android:value="377548733784" />
+        <meta-data
+            android:name="com.quickblox.messages.QB_ENVIRONMENT"
+            android:value="DEVELOPMENT" />
 
-        <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
+        <!-- <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
         <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
         <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver">
             <intent-filter>
@@ -47,14 +56,38 @@
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
                 <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
             </intent-filter>
-        </receiver>
+        </receiver> -->
 
-        <service
+        <!-- <service
             android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
+        </service> -->
+
+    <service android:name="com.evollu.react.fcm.MessagingService" android:enabled="true" android:exported="true">
+     <intent-filter android:priority="1000">
+       <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+     </intent-filter>
+   </service>
+ 
+   <service android:name="com.evollu.react.fcm.InstanceIdService" android:exported="false">
+     <intent-filter>
+       <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+     </intent-filter>
+   </service>
+
+        <!-- <service android:name="com.quickblox.messages.services.fcm.QBFcmPushListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
         </service>
+
+        <service android:name="com.quickblox.messages.services.fcm.QBFcmPushInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service> -->
     </application>
 </manifest>

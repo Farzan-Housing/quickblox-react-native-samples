@@ -78,7 +78,6 @@ export default function MessagesScreen(props) {
   const {navigation, route} = props;
   const {dialog, user} = useSelector(state => selector(state, props));
   const {leaveDialogs, sendMessage} = useActions(actions);
-
   const dialogInfoPressHandler = React.useCallback(() => {
     const dialogId = dialog ? dialog.id : route.params.dialogId;
     if (dialogId && navigation) {

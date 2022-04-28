@@ -1,8 +1,11 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {StatusBar, StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet, Alert} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import FlashMessage from 'react-native-flash-message';
+// import messaging from '@react-native-firebase/messaging';
+import FCM from 'react-native-fcm';
+import notifee from '@notifee/react-native'
 
 import Navigator from './Navigation';
 import ChatConnectionIndicator from './components/ChatConnectionIndicator';
@@ -36,6 +39,8 @@ export default function App() {
   React.useEffect(() => {
     dispatch(appStart(config));
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // const unsubscribe = messaging().onMessage(onMessageReceived);
+    // return unsubscribe;
   }, []);
 
   React.useEffect(() => {
@@ -44,6 +49,21 @@ export default function App() {
       dispatch(createSubscriptions());
     }
   }, [appReady, dispatch, loggedIn]);
+
+  async function onMessageReceived(message) {
+    const channelId = await notifee.createChannel({
+      id: 'default',
+      name: 'Default Channel',
+    });
+
+    await notifee.displayNotification({
+      title: 'Notification Title',
+      body: message.data.message,
+      android: {
+        channelId
+      },
+    });
+  }
 
   return (
     <SafeAreaProvider style={styles.navigatorView}>

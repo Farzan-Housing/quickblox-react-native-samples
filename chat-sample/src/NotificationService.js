@@ -1,7 +1,8 @@
 import {showMessage} from 'react-native-flash-message';
 import PushNotification, {Importance} from 'react-native-push-notification';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
+import FCM from 'react-native-fcm'
 
 import {saveToken} from './actionCreators';
 import {store} from './store';
@@ -57,7 +58,7 @@ export const setupPushNotifications = () => {
       }
     },
     // (optional) Called when Token is generated (iOS and Android)
-    onRegister: ({token}) => {
+    onRegister: ({ token }) => {
       store.dispatch(saveToken(token));
       const channelOptions = {
         channelDescription: 'A channel for QuickBlox chat notifications', // (optional) default: undefined.
@@ -88,3 +89,14 @@ export const setupPushNotifications = () => {
     requestPermissions: true,
   });
 };
+
+// export async function onAppBootstrap() {
+//   // Register the device with FCM
+//   await messaging().registerDeviceForRemoteMessages();
+
+//   // Get the token
+//   const token = await messaging().getToken();
+
+//   // Save the token
+//   store.dispatch(saveToken(token));
+// }

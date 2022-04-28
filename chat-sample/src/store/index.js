@@ -18,7 +18,7 @@ if (__DEV__) {
     chat: state.chat,
     device: state.device,
   }); */
-  middlewares.push(createLogger({stateTransformer}));
+  // middlewares.push(createLogger({stateTransformer}));
 }
 
 const persistConfig = {

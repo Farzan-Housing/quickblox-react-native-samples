@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "377548733784",
+    "project_id": "quickbloxsampleapp",
+    "storage_bucket": "quickbloxsampleapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377548733784:android:11c4840cf8e6bdf84cf92d",
+        "android_client_info": {
+          "package_name": "com.quickblox.sample.reactnative.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377548733784-u7260uh4p120fkmch83egu05n7s81t4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTf8AyC3ur750riJ6c_eLZ9GTNklowZNY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377548733784-u7260uh4p120fkmch83egu05n7s81t4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
